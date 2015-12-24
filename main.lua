@@ -1,6 +1,6 @@
 function love.load()
  function set_battlefield()
-	backgr = love.graphics.newImage("background.png")
+	backgr = love.graphics.newImage("img/background.png")
 
 	for bf_x=0,(love.graphics.getWidth() / 20) do
 		for bf_y=0,(love.graphics.getHeight() / 20) do
@@ -8,7 +8,7 @@ function love.load()
 		end
 	end
 
-	start_bf_x = 70
+	start_bf_x = 50
 	start_bf_y = 90
 	tile_size = 48
 	x_tiles = 7
