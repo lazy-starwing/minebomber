@@ -1,5 +1,6 @@
 function love.load()
  function set_battlefield()
+	love.graphics.setColor (220,220,220)
 	backgr = love.graphics.newImage("img/background.png")
 
 	for bf_x=0,(love.graphics.getWidth() / 20) do
