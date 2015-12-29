@@ -12,18 +12,18 @@ function love.load()
 	start_bf_x = 50
 	start_bf_y = 90
 	tile_size = 48
-	x_tiles = 7
-	y_tiles = 16
+	x_tiles = 16
+	y_tiles = 7
 
 	love.graphics.setLineWidth (3)
 	love.graphics.setColor (30,30,30)
 
- 	love.graphics.line(start_bf_x,start_bf_y, start_bf_x,start_bf_y + tile_size * x_tiles, start_bf_x + tile_size * y_tiles,start_bf_y + tile_size * x_tiles, start_bf_x + tile_size * y_tiles,start_bf_y, start_bf_x,start_bf_y)
-	for i=1,(x_tiles - 1) do
-		love.graphics.line(start_bf_x, start_bf_y + tile_size * i, start_bf_x + tile_size * y_tiles, start_bf_y + tile_size * i)
+ 	love.graphics.line(start_bf_x,start_bf_y, start_bf_x,start_bf_y + tile_size * y_tiles, start_bf_x + tile_size * x_tiles,start_bf_y + tile_size * y_tiles, start_bf_x + tile_size * x_tiles,start_bf_y, start_bf_x,start_bf_y)
+	for i=1,(y_tiles - 1) do
+		love.graphics.line(start_bf_x, start_bf_y + tile_size * i, start_bf_x + tile_size * x_tiles, start_bf_y + tile_size * i)
 	end
-	for j=1,(y_tiles - 1) do
-		love.graphics.line(start_bf_x + tile_size * j, start_bf_y, start_bf_x + tile_size * j, start_bf_y + tile_size * x_tiles)
+	for j=1,(x_tiles - 1) do
+		love.graphics.line(start_bf_x + tile_size * j, start_bf_y, start_bf_x + tile_size * j, start_bf_y + tile_size * y_tiles)
 	end
  end
 
