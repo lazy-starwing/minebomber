@@ -25,7 +25,14 @@ function love.load()
 	for j=1,(x_tiles - 1) do
 		love.graphics.line(start_bf_x + tile_size * j, start_bf_y, start_bf_x + tile_size * j, start_bf_y + tile_size * y_tiles)
 	end
-end
+ end
+
+ function set_players_on_bf()
+	love.graphics.setColor (220,220,220)
+	
+	love.graphics.draw(player.red.pic, start_bf_x + player.red.field_x * tile_size + 5, start_bf_y + player.red.field_y * tile_size + 5)
+	love.graphics.draw(player.blue.pic, start_bf_x + player.blue.field_x * tile_size + 5, start_bf_y + player.blue.field_y * tile_size + 5)
+ end
 
  player = {}
 
@@ -54,4 +61,5 @@ end
 
 function love.draw()
  set_battlefield()
+ set_players_on_bf()
 end
