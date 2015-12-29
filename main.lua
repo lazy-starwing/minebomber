@@ -1,4 +1,10 @@
 function love.load()
+ start_bf_x = 50
+ start_bf_y = 90
+ tile_size = 48
+ x_tiles = 16
+ y_tiles = 7
+
  function set_battlefield()
 	love.graphics.setColor (220,220,220)
 	backgr = love.graphics.newImage("img/background.png")
@@ -8,12 +14,6 @@ function love.load()
 			love.graphics.draw(backgr, bf_x * 20, bf_y * 20)
 		end
 	end
-
-	start_bf_x = 50
-	start_bf_y = 90
-	tile_size = 48
-	x_tiles = 16
-	y_tiles = 7
 
 	love.graphics.setLineWidth (3)
 	love.graphics.setColor (30,30,30)
@@ -25,7 +25,7 @@ function love.load()
 	for j=1,(x_tiles - 1) do
 		love.graphics.line(start_bf_x + tile_size * j, start_bf_y, start_bf_x + tile_size * j, start_bf_y + tile_size * y_tiles)
 	end
- end
+end
 
  player = {}
 
@@ -43,7 +43,8 @@ function love.load()
  
  -- all comments for player.red are true for player.blue
  player.blue = {}
- player.blue.field_x = 11
+ -- blue player starts on right side of battlefield
+ player.blue.field_x = (x_tiles - 1)
  player.blue.field_y = 3 
  player.blue.mines = 4 
  player.blue.pic = love.graphics.newImage("img/player_blue.png")
