@@ -15,6 +15,10 @@ function love.load()
 		end
 	end
 
+	ui_exit = love.graphics.newImage("img/ui_exit.png")
+	love.graphics.draw(ui_exit, 866, 708)
+
+
 	love.graphics.setLineWidth (3)
 	love.graphics.setColor (30,30,30)
 
@@ -62,4 +66,10 @@ end
 function love.draw()
  set_battlefield()
  set_players_on_bf()
+end
+
+function love.mousepressed(x, y)
+ if (x > 865) and (y > 708) then
+	love.event.quit()
+ end
 end
