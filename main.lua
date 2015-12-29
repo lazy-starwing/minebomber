@@ -27,6 +27,28 @@ function love.load()
 	end
  end
 
+ player = {}
+
+ player.red = {}
+ -- current x on battlefield
+ player.red.field_x = 0 
+ -- current y on battlefield
+ player.red.field_y = 3 
+ -- current mines count
+ player.red.mines = 4 
+ -- image of player
+ player.red.pic = love.graphics.newImage("img/player_red.png")
+ -- turn to this player
+ player.red.isTurn = false
+ 
+ -- all comments for player.red are true for player.blue
+ player.blue = {}
+ player.blue.field_x = 11
+ player.blue.field_y = 3 
+ player.blue.mines = 4 
+ player.blue.pic = love.graphics.newImage("img/player_blue.png")
+ player.blue.isTurn = false
+
 end
 
 function love.draw()
