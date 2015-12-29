@@ -38,6 +38,26 @@ function love.load()
 	love.graphics.draw(player.blue.pic, start_bf_x + player.blue.field_x * tile_size + 5, start_bf_y + player.blue.field_y * tile_size + 5)
  end
 
+ function set_ui()
+	ui_pics = {}
+	ui_pics.turn = love.graphics.newImage("img/ui_turn.png")
+	ui_pics.turn_red = love.graphics.newImage("img/ui_turn_red.png")
+	ui_pics.turn_blue = love.graphics.newImage("img/ui_turn_blue.png")
+	ui_pics.turn_curr = ui_pics.turn_blue
+	ui_pics.mines = love.graphics.newImage("img/ui_mines.png")
+	ui_pics.mine_4 = love.graphics.newImage("img/ui_mine_4.png")
+	ui_pics.mine_3 = love.graphics.newImage("img/ui_mine_3.png")
+	ui_pics.mine_2 = love.graphics.newImage("img/ui_mine_2.png")
+	ui_pics.mine_1 = love.graphics.newImage("img/ui_mine_1.png")
+	ui_pics.mine_0 = love.graphics.newImage("img/ui_mine_0.png")
+	ui_pics.mine_curr = ui_pics.mine_4
+
+ 	love.graphics.draw(ui_pics.turn, 45 + start_bf_x + tile_size * x_tiles, 12 + start_bf_y)
+ 	love.graphics.draw(ui_pics.turn_curr, 45 + start_bf_x + tile_size * x_tiles, 70 + start_bf_y)
+ 	love.graphics.draw(ui_pics.mines, 45 + start_bf_x + tile_size * x_tiles, 190 + start_bf_y)
+ 	love.graphics.draw(ui_pics.mine_curr, 45 + start_bf_x + tile_size * x_tiles, 240 + start_bf_y)
+ end
+
  player = {}
 
  player.red = {}
@@ -66,6 +86,7 @@ end
 function love.draw()
  set_battlefield()
  set_players_on_bf()
+ set_ui()
 end
 
 function love.mousepressed(x, y)
