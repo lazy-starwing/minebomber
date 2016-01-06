@@ -21,6 +21,8 @@ function love.load()
 	    isTurn = false;
  	    -- image of player
 	    pic = nil;
+	    -- get win codition
+	    isWin = false
  	    }
 
  function player:new (color)
@@ -72,12 +74,27 @@ function love.load()
 	love.graphics.draw(player_blue.pic, start_bf_x + player_blue.field_x * tile_size + 5, start_bf_y + player_blue.field_y * tile_size + 5)
  end
 
+ function setFirstPlayer ()
+ 	fst = love.math.random(0,1)
+	if fst == 0 then
+		player_red.isTurn = true
+	else
+		player_blue.isTurn = true
+	end
+ end
+
+ setFirstPlayer()
+
  function set_ui()
 	ui_pics = {}
 	ui_pics.turn = love.graphics.newImage("img/ui_turn.png")
 	ui_pics.turn_red = love.graphics.newImage("img/ui_turn_red.png")
 	ui_pics.turn_blue = love.graphics.newImage("img/ui_turn_blue.png")
-	ui_pics.turn_curr = ui_pics.turn_blue
+	if player_red.isTurn == true then
+		ui_pics.turn_curr = ui_pics.turn_red
+	elseif player_blue.isTurn == true then
+		ui_pics.turn_curr = ui_pics.turn_blue
+	end
 	ui_pics.mines = love.graphics.newImage("img/ui_mines.png")
 	ui_pics.mine_4 = love.graphics.newImage("img/ui_mine_4.png")
 	ui_pics.mine_3 = love.graphics.newImage("img/ui_mine_3.png")
@@ -97,7 +114,7 @@ function love.load()
 	love.graphics.draw(ui_pics.mine_button, start_bf_x + 290, start_bf_y + tile_size * y_tiles + 35)
 	love.graphics.draw(ui_pics.eot_button, start_bf_x + 540, start_bf_y + tile_size * y_tiles + 35)
  end
-
+ 
 end
 
 function love.draw()
@@ -107,6 +124,7 @@ function love.draw()
 end
 
 function love.mousepressed(x, y)
+ -- button exit
  if (x > 865) and (y > 708) then
 	love.event.quit()
  end
