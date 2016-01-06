@@ -16,7 +16,9 @@ function love.load()
  	    -- current y on battlefield
 	    field_y = 3;
  	    -- current mines count
-	    mines = 4;
+	    mines = 4,
+	    -- number of tiles for walking
+	    walks = 3;
  	    -- turn to this player
 	    isTurn = false;
  	    -- image of player
@@ -105,6 +107,9 @@ function love.load()
 	ui_pics.mine_button = love.graphics.newImage("img/ui_but_mine.png")
 	ui_pics.walk_button = love.graphics.newImage("img/ui_but_walk.png")
 	ui_pics.eot_button = love.graphics.newImage("img/ui_but_eot.png")
+	ui_pics.crs_walk = love.mouse.newCursor("img/crs_walk.png")
+	ui_pics.crs_mine = love.mouse.newCursor("img/crs_mine.png")
+	ui_pics.crs_eot = love.mouse.newCursor("img/crs_eot.png")
 
  	love.graphics.draw(ui_pics.turn, 45 + start_bf_x + tile_size * x_tiles, 12 + start_bf_y)
  	love.graphics.draw(ui_pics.turn_curr, 45 + start_bf_x + tile_size * x_tiles, 70 + start_bf_y)
@@ -131,16 +136,17 @@ function love.mousepressed(x, y)
 
  -- button walk
  if (x > (start_bf_x + 40)) and (x < (start_bf_x + 230)) and (y > (start_bf_y + tile_size * y_tiles + 35)) and (y < (start_bf_y + tile_size * y_tiles + 155)) then
- 	-- EMPTY
+	love.mouse.setCursor(ui_pics.crs_walk)
  end
 
  -- button mine
  if (x > (start_bf_x + 290)) and (x < (start_bf_x + 480)) and (y > (start_bf_y + tile_size * y_tiles + 35)) and (y < (start_bf_y + tile_size * y_tiles + 155)) then
- 	-- EMPTY
+	love.mouse.setCursor(ui_pics.crs_mine)
  end
+
  -- button end of turn
  if (x > (start_bf_x + 540)) and (x < (start_bf_x + 730)) and (y > (start_bf_y + tile_size * y_tiles + 35)) and (y < (start_bf_y + tile_size * y_tiles + 155)) then
- 	-- EMPTY
+	love.mouse.setCursor(ui_pics.crs_eot)
  end
  
 end
