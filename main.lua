@@ -1,8 +1,13 @@
 function love.load()
+ -- start horiz coord of battlefield
  start_bf_x = 50
+ -- start vert coord of battlefield
  start_bf_y = 90
+ -- size of tile's lenght in pixels
  tile_size = 48
+ -- number of horiz tiles
  x_tiles = 16
+ -- number of vert tiles
  y_tiles = 7
 
  player = {
