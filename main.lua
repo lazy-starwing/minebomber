@@ -128,4 +128,19 @@ function love.mousepressed(x, y)
  if (x > 865) and (y > 708) then
 	love.event.quit()
  end
+
+ -- button walk
+ if (x > (start_bf_x + 40)) and (x < (start_bf_x + 230)) and (y > (start_bf_y + tile_size * y_tiles + 35)) and (y < (start_bf_y + tile_size * y_tiles + 155)) then
+ 	-- EMPTY
+ end
+
+ -- button mine
+ if (x > (start_bf_x + 290)) and (x < (start_bf_x + 480)) and (y > (start_bf_y + tile_size * y_tiles + 35)) and (y < (start_bf_y + tile_size * y_tiles + 155)) then
+ 	-- EMPTY
+ end
+ -- button end of turn
+ if (x > (start_bf_x + 540)) and (x < (start_bf_x + 730)) and (y > (start_bf_y + tile_size * y_tiles + 35)) and (y < (start_bf_y + tile_size * y_tiles + 155)) then
+ 	-- EMPTY
+ end
+ 
 end
