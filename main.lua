@@ -5,6 +5,35 @@ function love.load()
  x_tiles = 16
  y_tiles = 7
 
+ player = {
+ 	    -- current x on battlefield
+	    field_x = 0,
+ 	    -- current y on battlefield
+	    field_y = 3;
+ 	    -- current mines count
+	    mines = 4;
+ 	    -- turn to this player
+	    isTurn = false;
+ 	    -- image of player
+	    pic = nil;
+ 	    }
+
+ function player:new (color)
+ 	color = color or {}
+	setmetatable (color, self)
+	self.__index = self
+	return color
+ end
+ 
+ player_red = player:new()
+ player_blue = player:new()
+
+ player_red.pic = love.graphics.newImage("img/player_red.png")
+ player_blue.pic = love.graphics.newImage("img/player_blue.png")
+ 
+ -- blue player starts on right side of battlefield
+ player_blue.field_x = (x_tiles - 1)
+
  function set_battlefield()
 	love.graphics.setColor (220,220,220)
 	backgr = love.graphics.newImage("img/background.png")
@@ -34,8 +63,8 @@ function love.load()
  function set_players_on_bf()
 	love.graphics.setColor (220,220,220)
 	
-	love.graphics.draw(player.red.pic, start_bf_x + player.red.field_x * tile_size + 5, start_bf_y + player.red.field_y * tile_size + 5)
-	love.graphics.draw(player.blue.pic, start_bf_x + player.blue.field_x * tile_size + 5, start_bf_y + player.blue.field_y * tile_size + 5)
+	love.graphics.draw(player_red.pic, start_bf_x + player_red.field_x * tile_size + 5, start_bf_y + player_red.field_y * tile_size + 5)
+	love.graphics.draw(player_blue.pic, start_bf_x + player_blue.field_x * tile_size + 5, start_bf_y + player_blue.field_y * tile_size + 5)
  end
 
  function set_ui()
@@ -57,29 +86,6 @@ function love.load()
  	love.graphics.draw(ui_pics.mines, 45 + start_bf_x + tile_size * x_tiles, 190 + start_bf_y)
  	love.graphics.draw(ui_pics.mine_curr, 45 + start_bf_x + tile_size * x_tiles, 240 + start_bf_y)
  end
-
- player = {}
-
- player.red = {}
- -- current x on battlefield
- player.red.field_x = 0 
- -- current y on battlefield
- player.red.field_y = 3 
- -- current mines count
- player.red.mines = 4 
- -- image of player
- player.red.pic = love.graphics.newImage("img/player_red.png")
- -- turn to this player
- player.red.isTurn = false
- 
- -- all comments for player.red are true for player.blue
- player.blue = {}
- -- blue player starts on right side of battlefield
- player.blue.field_x = (x_tiles - 1)
- player.blue.field_y = 3 
- player.blue.mines = 4 
- player.blue.pic = love.graphics.newImage("img/player_blue.png")
- player.blue.isTurn = false
 
 end
 
