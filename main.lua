@@ -85,11 +85,17 @@ function love.load()
 	ui_pics.mine_1 = love.graphics.newImage("img/ui_mine_1.png")
 	ui_pics.mine_0 = love.graphics.newImage("img/ui_mine_0.png")
 	ui_pics.mine_curr = ui_pics.mine_4
+	ui_pics.mine_button = love.graphics.newImage("img/ui_but_mine.png")
+	ui_pics.walk_button = love.graphics.newImage("img/ui_but_walk.png")
+	ui_pics.eot_button = love.graphics.newImage("img/ui_but_eot.png")
 
  	love.graphics.draw(ui_pics.turn, 45 + start_bf_x + tile_size * x_tiles, 12 + start_bf_y)
  	love.graphics.draw(ui_pics.turn_curr, 45 + start_bf_x + tile_size * x_tiles, 70 + start_bf_y)
  	love.graphics.draw(ui_pics.mines, 45 + start_bf_x + tile_size * x_tiles, 190 + start_bf_y)
  	love.graphics.draw(ui_pics.mine_curr, 45 + start_bf_x + tile_size * x_tiles, 240 + start_bf_y)
+	love.graphics.draw(ui_pics.walk_button, start_bf_x + 40, start_bf_y + tile_size * y_tiles + 35)
+	love.graphics.draw(ui_pics.mine_button, start_bf_x + 290, start_bf_y + tile_size * y_tiles + 35)
+	love.graphics.draw(ui_pics.eot_button, start_bf_x + 540, start_bf_y + tile_size * y_tiles + 35)
  end
 
 end
